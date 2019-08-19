@@ -14,7 +14,9 @@ def get_ip_address():
     get_ip:string
         string of IP address
     """
-    get_ip = urllib.request.urlopen('http://ipcheck.ieserver.net').read().decode('utf-8')
+    #get_ip = urllib.request.urlopen('http://ipcheck.ieserver.net').read().decode('utf-8')
+    temp = urllib.request.urlopen("http://checkip.dyndns.org").read().decode("utf-8")
+    get_ip = temp.rsplit(":", 1)[1].rsplit("</body>", 1)[0]
     return(get_ip)
 
 
